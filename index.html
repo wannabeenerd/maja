@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wir wollen reden – Druckkampagne für Maja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple transition for page visibility */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+        <!-- ===== HAUPTSEITE (HOME) ===== -->
+        <section id="home-page" class="page active">
+            <header class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-2" data-translate-key="home_title">Wir wollen reden – Druckkampagne für Maja</h1>
+                <p class="text-lg text-blue-300 font-semibold" data-translate-key="home_subtitle">1.–3. Juli</p>
+            </header>
+
+            <div class="text-center mb-8">
+                <button onclick="showPage('state-selection-page')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition-transform transform hover:scale-105" data-translate-key="home_main_button">
+                    Kontaktier die Verantwortlichen
+                </button>
+            </div>
+
+            <article class="bg-gray-800 p-6 rounded-lg text-gray-300 space-y-4 leading-relaxed">
+                <p><strong class="text-white" data-translate-key="home_p1_strong">Seit dem 5. Juni 2025 ist Maja im Hungerstreik.</strong> Am Freitag beginnt die fünfte Hungerstreikwoche. Es hat sich seit Beginn des Hungerstreiks bei Linken, Grünen und auch SPD durchaus etwas bewegt. Die Verantwortungsträger*innen in der Regierung und das Auswärtige Amt weisen jedoch immer noch die Verantwortung für die Rücküberstellung von Maja von sich.</p>
+                <p class="text-white font-semibold" data-translate-key="home_p2">Wir haben keine Zeit mehr. Wir müssen den Druck auf die Regierung und die Parteien JETZT erhöhen. Deswegen rufen wir dazu auf, von Dienstag bis Donnerstag, 1. bis 3. Juli 2025, das Gespräch mit den Verantwortlichen zu suchen und sie in die Verantwortung zu nehmen.</p>
+                <ul class="list-disc list-inside space-y-3 pl-2">
+                    <li data-translate-key="home_li1">Sucht gemeinsam die Büros der Regierungsparteien SPD und CDU in euren Städten auf und redet mit den Vertreter*innen der Parteien. Berichtet anschließend davon.</li>
+                    <li>
+                        <a href="#" onclick="event.preventDefault(); showPage('state-selection-page');" class="text-blue-400 hover:text-blue-300 underline" data-translate-key="home_li2">Kontaktiert die Bundestagsabgeordneten aus eurer Stadt – per Telefon und per E-Mail.</a>
+                    </li>
+                    <li data-translate-key="home_li3">Kontaktiert das Auswärtige Amt – per Telefon und per E-Mail.</li>
+                    <li data-translate-key="home_li4">Parallel dazu ist es wichtig, weiterhin durch Veranstaltungen, Kundgebungen, Demonstrationen und Aktionen des zivilen Ungehorsams Aufmerksamkeit für Majas Hungerstreik zu schaffen.</li>
+                </ul>
+                <p class="text-right text-sm text-gray-400 pt-4">30. Juni 2025</p>
+            </article>
+
+            <div class="text-center mt-8">
+                <button onclick="showPage('state-selection-page')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition-transform transform hover:scale-105" data-translate-key="home_main_button_bottom">
+                    Kontaktier die Verantwortlichen
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== BUNDESLAND-AUSWAHL ===== -->
+        <section id="state-selection-page" class="page">
+            <header class="text-center mb-8">
+                <button onclick="showPage('home-page')" class="text-blue-400 hover:text-blue-300 mb-4" data-translate-key="back_button">&larr; Zurück zur Startseite</button>
+                <h2 class="text-3xl md:text-4xl font-bold text-white" data-translate-key="state_title">Wen willst du kontaktieren?</h2>
+                <p class="text-gray-400 mt-2" data-translate-key="state_subtitle">Wähle ein Bundesland, um eine E-Mail an 5 zufällige Abgeordnete zu senden.</p>
+            </header>
+            <div id="state-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <!-- Bundesländer werden hier per JS eingefügt -->
+            </div>
+        </section>
+
+        <!-- ===== AKTIONS-SEITE ===== -->
+        <section id="action-page" class="page">
+            <header class="text-center mb-8">
+                 <button onclick="showPage('state-selection-page')" class="text-blue-400 hover:text-blue-300 mb-4" data-translate-key="back_button_states">&larr; Anderes Bundesland wählen</button>
+                <h2 id="action-page-title" class="text-3xl md:text-4xl font-bold text-white"></h2>
+            </header>
+            
+            <div id="action-content" class="space-y-6">
+                <!-- Mailto-Button und Kontaktkarten werden hier per JS eingefügt -->
+            </div>
+        </section>
+
+        <!-- ===== FOOTER MIT SPRACHUMSCHALTER ===== -->
+        <footer class="text-center mt-12 pt-6 border-t border-gray-700">
+            <p class="text-gray-400 mb-3" data-translate-key="language_switcher_title">Sprache ändern:</p>
+            <div class="flex justify-center space-x-2">
+                <button onclick="changeLanguage('de')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Deutsch</button>
+                <button onclick="changeLanguage('tr')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Türkçe</button>
+                <button onclick="changeLanguage('es')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Español</button>
+                <button onclick="changeLanguage('it')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Italiano</button>
+                <button onclick="changeLanguage('fr')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Français</button>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // ===== DATENBANK =====
+
+        // Daten der CDU/CSU-Abgeordneten (extrahiert aus der CSV-Datei)
+        // In einer echten Anwendung würde man dies aus einer API laden.
+        const mdbData = [
+            { "anrede": "Herr", "titel": "", "vorname": "Stephan", "nachname": "Albani", "partei": "CDU", "bundesland": "Niedersachsen", "email": "stephan.albani@bundestag.de", "telefon": "030-22777094", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Norbert", "nachname": "Altenkamp", "partei": "CDU", "bundesland": "Hessen", "email": "norbert.altenkamp@bundestag.de", "telefon": "030-22779345", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Peter", "nachname": "Aumer", "partei": "CSU", "bundesland": "Bayern", "email": "peter.aumer@bundestag.de", "telefon": "030-22773584", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Frau", "titel": "", "vorname": "Silvia", "nachname": "Breher", "partei": "CDU", "bundesland": "Niedersachsen", "email": "silvia.breher@bundestag.de", "telefon": "030-22775550", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Ralph", "nachname": "Brinkhaus", "partei": "CDU", "bundesland": "Nordrhein-Westfalen", "email": "ralph.brinkhaus@bundestag.de", "telefon": "030-22775111", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "Dr.", "vorname": "Michael", "nachname": "Frieser", "partei": "CSU", "bundesland": "Bayern", "email": "michael.frieser@bundestag.de", "telefon": "030-22775214", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Hermann", "nachname": "Gröhe", "partei": "CDU", "bundesland": "Nordrhein-Westfalen", "email": "hermann.groehe@bundestag.de", "telefon": "030-22773395", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Frau", "titel": "", "vorname": "Monika", "nachname": "Grütters", "partei": "CDU", "bundesland": "Berlin", "email": "monika.gruetters@bundestag.de", "telefon": "030-22772274", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Friedrich", "nachname": "Merz", "partei": "CDU", "bundesland": "Nordrhein-Westfalen", "email": "friedrich.merz@bundestag.de", "telefon": "030-22775111", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "Dr.", "vorname": "Johann", "nachname": "Wadephul", "partei": "CDU", "bundesland": "Schleswig-Holstein", "email": "johann.wadephul@bundestag.de", "telefon": "030-22775295", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Marco", "nachname": "Wanderwitz", "partei": "CDU", "bundesland": "Sachsen", "email": "marco.wanderwitz@bundestag.de", "telefon": "030-22773648", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Frau", "titel": "", "vorname": "Anja", "nachname": "Weisgerber", "partei": "CSU", "bundesland": "Bayern", "email": "anja.weisgerber@bundestag.de", "telefon": "030-22773041", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Kai", "nachname": "Whittaker", "partei": "CDU", "bundesland": "Baden-Württemberg", "email": "kai.whittaker@bundestag.de", "telefon": "030-22773123", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Frau", "titel": "", "vorname": "Katja", "nachname": "Leikert", "partei": "CDU", "bundesland": "Hessen", "email": "katja.leikert@bundestag.de", "telefon": "030-22773669", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Philipp", "nachname": "Amthor", "partei": "CDU", "bundesland": "Mecklenburg-Vorpommern", "email": "philipp.amthor@bundestag.de", "telefon": "030-22779261", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Thomas", "nachname": "Rachel", "partei": "CDU", "bundesland": "Nordrhein-Westfalen", "email": "thomas.rachel@bundestag.de", "telefon": "030-22775530", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Stefan", "nachname": "Ruppert", "partei": "CDU", "bundesland": "Hessen", "email": "stefan.ruppert@bundestag.de", "telefon": "030-22775333", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Johannes", "nachname": "Selle", "partei": "CDU", "bundesland": "Thüringen", "email": "johannes.selle@bundestag.de", "telefon": "030-22773380", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Jens", "nachname": "Spahn", "partei": "CDU", "bundesland": "Nordrhein-Westfalen", "email": "jens.spahn@bundestag.de", "telefon": "030-22775163", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "Dr.", "vorname": "Andreas", "nachname": "Nick", "partei": "CDU", "bundesland": "Rheinland-Pfalz", "email": "andreas.nick@bundestag.de", "telefon": "030-22773371", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Christian", "nachname": "von Stetten", "partei": "CDU", "bundesland": "Baden-Württemberg", "email": "christian.vonstetten@bundestag.de", "telefon": "030-22775185", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Volker", "nachname": "Ullrich", "partei": "CSU", "bundesland": "Bayern", "email": "volker.ullrich@bundestag.de", "telefon": "030-22779218", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Arnold", "nachname": "Vaatz", "partei": "CDU", "bundesland": "Sachsen", "email": "arnold.vaatz@bundestag.de", "telefon": "030-22775199", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Frau", "titel": "", "vorname": "Nina", "nachname": "Warken", "partei": "CDU", "bundesland": "Baden-Württemberg", "email": "nina.warken@bundestag.de", "telefon": "030-22779311", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Klaus-Peter", "nachname": "Willsch", "partei": "CDU", "bundesland": "Hessen", "email": "klaus-peter.willsch@bundestag.de", "telefon": "030-22775365", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Nicolas", "nachname": "Zippelius", "partei": "CDU", "bundesland": "Baden-Württemberg", "email": "nicolas.zippelius@bundestag.de", "telefon": "030-22770027", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Armin", "nachname": "Schuster", "partei": "CDU", "bundesland": "Baden-Württemberg", "email": "armin.schuster@bundestag.de", "telefon": "030-22775155", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" },
+            { "anrede": "Herr", "titel": "", "vorname": "Thorsten", "nachname": "Frei", "partei": "CDU", "bundesland": "Baden-Württemberg", "email": "thorsten.frei@bundestag.de", "telefon": "030-22773133", "strasse": "Platz der Republik 1", "plz": "11011", "ort": "Berlin" }
+        ];
+
+        // Daten der Bundesländer mit Flaggen-Icons (vereinfachte SVG-Pfade oder Emojis)
+        const bundeslaender = {
+            "Baden-Württemberg": "BW", "Bayern": "BY", "Berlin": "BE", "Brandenburg": "BB", 
+            "Bremen": "HB", "Hamburg": "HH", "Hessen": "HE", "Mecklenburg-Vorpommern": "MV",
+            "Niedersachsen": "NI", "Nordrhein-Westfalen": "NW", "Rheinland-Pfalz": "RP", 
+            "Saarland": "SL", "Sachsen": "SN", "Sachsen-Anhalt": "ST", "Schleswig-Holstein": "SH", "Thüringen": "TH"
+        };
+        const flagEmojis = {
+            "Baden-Württemberg": " Baden-Württemberg", "Bayern": " Bayern", "Berlin": " Berlin", "Brandenburg": " Brandenburg", "Bremen": " Bremen", "Hamburg": " Hamburg", "Hessen": " Hessen", "Mecklenburg-Vorpommern": " Mecklenburg-Vorpommern", "Niedersachsen": " Niedersachsen", "Nordrhein-Westfalen": " Nordrhein-Westfalen", "Rheinland-Pfalz": " Rheinland-Pfalz", "Saarland": " Saarland", "Sachsen": " Sachsen", "Sachsen-Anhalt": " Sachsen-Anhalt", "Schleswig-Holstein": " Schleswig-Holstein", "Thüringen": " Thüringen"
+        };
+
+        // Kontaktdaten Auswärtiges Amt
+        const auswaertigesAmt = {
+            name: "Auswärtiges Amt",
+            email: "poststelle@auswaertiges-amt.de",
+            telefon: "030-18170",
+            strasse: "Werderscher Markt 1",
+            plz: "10117",
+            ort: "Berlin"
+        };
+
+        // E-Mail-Vorlage (extrahiert aus der DOCX-Datei)
+        const emailSubject = "Dringende Bitte um Einsatz für Maja T.";
+        const emailBody = `Sehr geehrte Damen und Herren,
+
+ich wende mich mit einem dringenden Anliegen an Sie, welches mir persönlich sehr am Herzen liegt. Es geht um den Justizskandal rund um Maja T.
+Maja T. ist eine nicht-binäre Person mit deutscher Staatsangehörigkeit, welcher von der ungarischen Staatsanwaltschaft Straftaten in Ungarn vorgeworfen werden. Maja T. wurde rechtswidrig an Ungarn ausgeliefert, wie das Bundesverfassungsgericht später feststellte. In Ungarn wird der Prozess von Maja T., auch auf Grund von Majas Geschlechtsidentität, politisch instrumentalisiert. Maja T. leidet unter menschenunwürdigen Haftbedingungen.
+
+Maja T. fordert eine Rücküberstellung nach Deutschland und hier einen fairen und rechtsstaatlichen Prozess, bei welchem die Menschenrechte und das Prinzip Unschuldsvermutung eingehalten werden. Nach mehr als einem Jahr Untersuchungshaft ist Maja T. am 5. Juni 2025 in den Hungerstreik getreten.
+
+Es ist meine tiefste Überzeugung, dass jede Person, egal welche Straftat ihr vorgeworfen wird, einen fairen und rechtsstaatlichen Prozess verdient.
+
+Deshalb möchte ich Sie als Bundestagsabgeordnete dringlichst bitten, Ihren politischen Einfluss geltend zu machen und sich dafür einzusetzen, dass Maja T. so schnell wie möglich zurück nach Deutschland überstellt wird. Insbesondere möchte ich Sie bitten, auf den Bundeskanzler und den Außenminister einzuwirken, dass diese sich auf diplomatischem Wege persönlich für die Rücküberstellung von Maja T. einsetzen.
+
+Ich hoffe, mein Anliegen stößt bei Ihnen auf ein offenes Ohr.
+
+Mit freundlichen Grüßen
+
+[Ihr Vorname] [Ihr Nachname]
+`;
+
+        // Übersetzungen für die UI
+        const translations = {
+            de: {
+                home_title: "Wir wollen reden – Druckkampagne für Maja",
+                home_subtitle: "1.–3. Juli",
+                home_main_button: "Kontaktier die Verantwortlichen",
+                home_p1_strong: "Seit dem 5. Juni 2025 ist Maja im Hungerstreik.",
+                home_p2: "Wir haben keine Zeit mehr. Wir müssen den Druck auf die Regierung und die Parteien JETZT erhöhen. Deswegen rufen wir dazu auf, von Dienstag bis Donnerstag, 1. bis 3. Juli 2025, das Gespräch mit den Verantwortlichen zu suchen und sie in die Verantwortung zu nehmen.",
+                home_li1: "Sucht gemeinsam die Büros der Regierungsparteien SPD und CDU in euren Städten auf und redet mit den Vertreter*innen der Parteien. Berichtet anschließend davon.",
+                home_li2: "Kontaktiert die Bundestagsabgeordneten aus eurer Stadt – per Telefon und per E-Mail.",
+                home_li3: "Kontaktiert das Auswärtige Amt – per Telefon und per E-Mail.",
+                home_li4: "Parallel dazu ist es wichtig, weiterhin durch Veranstaltungen, Kundgebungen, Demonstrationen und Aktionen des zivilen Ungehorsams Aufmerksamkeit für Majas Hungerstreik zu schaffen.",
+                home_main_button_bottom: "Kontaktier die Verantwortlichen",
+                back_button: "← Zurück zur Startseite",
+                back_button_states: "← Anderes Bundesland wählen",
+                state_title: "Wen willst du kontaktieren?",
+                state_subtitle: "Wähle ein Bundesland, um eine E-Mail an 5 zufällige Abgeordnete zu senden.",
+                language_switcher_title: "Sprache ändern:",
+                action_page_title_prefix: "Abgeordnete aus",
+                main_email_button: "E-Mail an 5 Abgeordnete senden",
+                contact_info_title: "Deine 5 zufälligen Kontakte:",
+                foreign_office_title: "Kontakt Auswärtiges Amt",
+                more_options_button: "Weitere Optionen anzeigen",
+                more_options_email_10: "E-Mail an 10 weitere Abgeordnete",
+                more_options_show_address: "Postanschriften anzeigen",
+                addresses_title: "Postanschriften:"
+            },
+            tr: {
+                home_title: "Konuşmak istiyoruz – Maja için baskı kampanyası",
+                home_subtitle: "1–3 Temmuz",
+                home_main_button: "Sorumlularla iletişime geçin",
+                home_p1_strong: "Maja, 5 Haziran 2025'ten beri açlık grevinde.",
+                home_p2: "Zamanımız kalmadı. Hükümet ve partiler üzerindeki baskıyı ŞİMDİ artırmalıyız. Bu nedenle 1-3 Temmuz tarihleri arasında sorumlularla görüşmeye ve onları sorumlu tutmaya çağırıyoruz.",
+                home_li1: "Şehirlerinizdeki hükümet partileri SPD ve CDU'nun ofislerini ziyaret edin ve parti temsilcileriyle konuşun. Ardından bunu rapor edin.",
+                home_li2: "Şehrinizdeki milletvekilleriyle telefon ve e-posta yoluyla iletişime geçin.",
+                home_li3: "Dışişleri Bakanlığı ile telefon ve e-posta yoluyla iletişime geçin.",
+                home_li4: "Aynı zamanda, Maja'nın açlık grevine dikkat çekmek için etkinlikler, mitingler, gösteriler ve sivil itaatsizlik eylemleri düzenlemeye devam etmek önemlidir.",
+                home_main_button_bottom: "Sorumlularla iletişime geçin",
+                back_button: "← Ana sayfaya geri dön",
+                back_button_states: "← Başka bir eyalet seç",
+                state_title: "Kiminle iletişime geçmek istersiniz?",
+                state_subtitle: "Rastgele 5 milletvekiline e-posta göndermek için bir eyalet seçin.",
+                language_switcher_title: "Dili değiştir:",
+                action_page_title_prefix: "Milletvekilleri:",
+                main_email_button: "5 milletvekiline e-posta gönder",
+                contact_info_title: "Rastgele seçilen 5 kişiniz:",
+                foreign_office_title: "Dışişleri Bakanlığı İletişim",
+                more_options_button: "Daha fazla seçenek göster",
+                more_options_email_10: "10 milletvekiline daha e-posta gönder",
+                more_options_show_address: "Posta adreslerini göster",
+                addresses_title: "Posta adresleri:"
+            },
+            es: {
+                home_title: "Queremos hablar – Campaña de presión por Maja",
+                home_subtitle: "1–3 de julio",
+                home_main_button: "Contacta a los responsables",
+                home_p1_strong: "Maja está en huelga de hambre desde el 5 de junio de 2025.",
+                home_p2: "No tenemos más tiempo. Debemos aumentar la presión sobre el gobierno y los partidos AHORA. Por eso, llamamos a buscar el diálogo con los responsables del 1 al 3 de julio y hacer que asuman su responsabilidad.",
+                home_li1: "Visiten las oficinas de los partidos gubernamentales SPD y CDU en sus ciudades y hablen con sus representantes. Informen sobre ello después.",
+                home_li2: "Contacten a los diputados de su ciudad – por teléfono y por correo electrónico.",
+                home_li3: "Contacten al Ministerio de Asuntos Exteriores – por teléfono y por correo electrónico.",
+                home_li4: "Paralelamente, es importante seguir creando conciencia sobre la huelga de hambre de Maja a través de eventos, mítines, manifestaciones y acciones de desobediencia civil.",
+                home_main_button_bottom: "Contacta a los responsables",
+                back_button: "← Volver a la página principal",
+                back_button_states: "← Elegir otro estado",
+                state_title: "¿A quién quieres contactar?",
+                state_subtitle: "Elige un estado para enviar un correo a 5 diputados al azar.",
+                language_switcher_title: "Cambiar idioma:",
+                action_page_title_prefix: "Diputados de",
+                main_email_button: "Enviar correo a 5 diputados",
+                contact_info_title: "Tus 5 contactos aleatorios:",
+                foreign_office_title: "Contacto del Ministerio de Asuntos Exteriores",
+                more_options_button: "Mostrar más opciones",
+                more_options_email_10: "Correo a 10 diputados más",
+                more_options_show_address: "Mostrar direcciones postales",
+                addresses_title: "Direcciones postales:"
+            },
+            it: {
+                home_title: "Vogliamo parlare – Campagna di pressione per Maja",
+                home_subtitle: "1–3 luglio",
+                home_main_button: "Contatta i responsabili",
+                home_p1_strong: "Maja è in sciopero della fame dal 5 giugno 2025.",
+                home_p2: "Non abbiamo più tempo. Dobbiamo aumentare la pressione sul governo e sui partiti ORA. Per questo, invitiamo a cercare il dialogo con i responsabili dal 1° al 3 luglio e a farli assumere le loro responsabilità.",
+                home_li1: "Visitate gli uffici dei partiti di governo SPD e CDU nelle vostre città e parlate con i rappresentanti. Riferite poi l'esito.",
+                home_li2: "Contattate i deputati della vostra città – per telefono e via e-mail.",
+                home_li3: "Contattate il Ministero degli Affari Esteri – per telefono e via e-mail.",
+                home_li4: "Allo stesso tempo, è importante continuare a sensibilizzare sull'sciopero della fame di Maja attraverso eventi, manifestazioni e azioni di disobbedienza civile.",
+                home_main_button_bottom: "Contatta i responsabili",
+                back_button: "← Torna alla home page",
+                back_button_states: "← Scegli un'altra regione",
+                state_title: "Chi vuoi contattare?",
+                state_subtitle: "Scegli una regione per inviare un'email a 5 deputati a caso.",
+                language_switcher_title: "Cambia lingua:",
+                action_page_title_prefix: "Deputati da",
+                main_email_button: "Invia email a 5 deputati",
+                contact_info_title: "I tuoi 5 contatti casuali:",
+                foreign_office_title: "Contatti Ministero Affari Esteri",
+                more_options_button: "Mostra più opzioni",
+                more_options_email_10: "Email ad altri 10 deputati",
+                more_options_show_address: "Mostra indirizzi postali",
+                addresses_title: "Indirizzi postali:"
+            },
+            fr: {
+                home_title: "Nous voulons parler – Campagne de pression pour Maja",
+                home_subtitle: "1er–3 juillet",
+                home_main_button: "Contactez les responsables",
+                home_p1_strong: "Maja est en grève de la faim depuis le 5 juin 2025.",
+                home_p2: "Nous n'avons plus le temps. Nous devons augmenter la pression sur le gouvernement et les partis MAINTENANT. C'est pourquoi nous appelons à rechercher le dialogue avec les responsables du 1er au 3 juillet et à les mettre face à leurs responsabilités.",
+                home_li1: "Rendez-vous dans les bureaux des partis gouvernementaux SPD et CDU de vos villes et parlez à leurs représentants. Faites-en ensuite le compte rendu.",
+                home_li2: "Contactez les députés de votre ville – par téléphone et par e-mail.",
+                home_li3: "Contactez le ministère des Affaires étrangères – par téléphone et par e-mail.",
+                home_li4: "Parallèlement, il est important de continuer à attirer l'attention sur la grève de la faim de Maja par des événements, des rassemblements, des manifestations et des actions de désobéissance civile.",
+                home_main_button_bottom: "Contactez les responsables",
+                back_button: "← Retour à l'accueil",
+                back_button_states: "← Choisir une autre région",
+                state_title: "Qui voulez-vous contacter ?",
+                state_subtitle: "Choisissez une région pour envoyer un e-mail à 5 députés au hasard.",
+                language_switcher_title: "Changer de langue :",
+                action_page_title_prefix: "Députés de",
+                main_email_button: "Envoyer un e-mail à 5 députés",
+                contact_info_title: "Vos 5 contacts aléatoires :",
+                foreign_office_title: "Contact du Ministère des Affaires étrangères",
+                more_options_button: "Afficher plus d'options",
+                more_options_email_10: "E-mail à 10 autres députés",
+                more_options_show_address: "Afficher les adresses postales",
+                addresses_title: "Adresses postales :"
+            }
+        };
+
+        let currentLanguage = 'de';
+        let selectedMdbs = [];
+        let selectedState = '';
+
+        // ===== FUNKTIONEN =====
+
+        // Zeigt eine Seite an und blendet die anderen aus
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Füllt das Gitter mit den Bundesländern
+        function populateStateSelection() {
+            const grid = document.getElementById('state-grid');
+            grid.innerHTML = '';
+            for (const state in bundeslaender) {
+                const button = document.createElement('button');
+                button.className = "bg-gray-800 hover:bg-gray-700 p-4 rounded-lg flex flex-col items-center justify-center text-center transition-colors";
+                button.onclick = () => handleStateSelect(state);
+                
+                const flagText = flagEmojis[state] || state;
+                button.innerHTML = `<span class="text-2xl mb-2">${flagText.split(' ')[0]}</span><span class="font-semibold text-white">${state}</span>`;
+                grid.appendChild(button);
+            }
+        }
+
+        // Behandelt die Auswahl eines Bundeslandes
+        function handleStateSelect(state) {
+            selectedState = state;
+            const stateMdbs = mdbData.filter(mdb => mdb.bundesland === state);
+            
+            // Mische das Array und wähle die ersten 5
+            const shuffled = stateMdbs.sort(() => 0.5 - Math.random());
+            selectedMdbs = shuffled.slice(0, 5);
+            
+            if (selectedMdbs.length === 0) {
+                alert(`Für ${state} wurden leider keine CDU/CSU-Abgeordneten in unserer Liste gefunden. Bitte wählen Sie ein anderes Bundesland.`);
+                return;
+            }
+
+            generateActionPage(selectedMdbs);
+            showPage('action-page');
+        }
+
+        // Erstellt die Aktionsseite mit Kontakten und Mail-Button
+        function generateActionPage(mdbs) {
+            const title = document.getElementById('action-page-title');
+            title.textContent = `${translations[currentLanguage].action_page_title_prefix} ${selectedState}`;
+
+            const content = document.getElementById('action-content');
+            content.innerHTML = '';
+
+            // 1. Haupt-E-Mail-Button
+            const mailtoLink = createMailtoLink(mdbs);
+            content.innerHTML += `
+                <div class="text-center">
+                    <a href="${mailtoLink}" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg text-xl transition-transform transform hover:scale-105">
+                        <span data-translate-key="main_email_button">${translations[currentLanguage].main_email_button}</span>
+                    </a>
+                </div>
+            `;
+
+            // 2. Kontaktkarten
+            let cardsHtml = `<h3 class="text-2xl font-bold text-white mt-8 mb-4 border-b border-gray-600 pb-2" data-translate-key="contact_info_title">${translations[currentLanguage].contact_info_title}</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4">`;
+            mdbs.forEach(mdb => {
+                cardsHtml += createContactCard(mdb);
+            });
+            cardsHtml += '</div>';
+            content.innerHTML += cardsHtml;
+
+            // 3. Auswärtiges Amt
+            content.innerHTML += `<h3 class="text-2xl font-bold text-white mt-8 mb-4 border-b border-gray-600 pb-2" data-translate-key="foreign_office_title">${translations[currentLanguage].foreign_office_title}</h3>`;
+            content.innerHTML += createContactCard(auswaertigesAmt, false);
+
+            // 4. Weitere Optionen
+            content.innerHTML += `
+                <div class="text-center mt-8">
+                    <button onclick="toggleMoreOptions()" class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded-lg" data-translate-key="more_options_button">${translations[currentLanguage].more_options_button}</button>
+                    <div id="more-options" class="hidden mt-4 space-y-3 max-w-md mx-auto">
+                        <a href="${createMailtoLink(mdbData.sort(() => 0.5 - Math.random()).slice(0, 10))}" class="block w-full bg-blue-800 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded-lg" data-translate-key="more_options_email_10">${translations[currentLanguage].more_options_email_10}</a>
+                        <button onclick="showAddresses()" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-4 rounded-lg" data-translate-key="more_options_show_address">${translations[currentLanguage].more_options_show_address}</button>
+                    </div>
+                    <div id="address-container" class="mt-4 text-left bg-gray-800 p-4 rounded-lg max-w-md mx-auto" style="display: none;"></div>
+                </div>
+            `;
+        }
+        
+        // Hilfsfunktion zum Erstellen einer Kontaktkarte
+        function createContactCard(person, isMdb = true) {
+            const name = isMdb ? `${person.anrede} ${person.titel || ''} ${person.vorname} ${person.nachname}`.trim() : person.name;
+            return `
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                    <h4 class="font-bold text-lg text-white">${name}</h4>
+                    ${isMdb ? `<p class="text-sm text-blue-300">${person.partei} - ${person.bundesland}</p>` : ''}
+                    <div class="mt-3 space-y-2 text-sm">
+                        <p><a href="mailto:${person.email}" class="text-blue-400 hover:underline break-all">${person.email}</a></p>
+                        <p><a href="tel:${person.telefon}" class="text-blue-400 hover:underline">${person.telefon}</a></p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Hilfsfunktion zum Erstellen des Mailto-Links
+        function createMailtoLink(recipients) {
+            const bcc = recipients.map(r => r.email).join(',');
+            const subject = encodeURIComponent(emailSubject);
+            const body = encodeURIComponent(emailBody);
+            return `mailto:?bcc=${bcc}&subject=${subject}&body=${body}`;
+        }
+
+        // Schaltet die "Weitere Optionen" um
+        function toggleMoreOptions() {
+            document.getElementById('more-options').classList.toggle('hidden');
+        }
+
+        // Zeigt die Postanschriften an
+        function showAddresses() {
+            const container = document.getElementById('address-container');
+            let addressesHtml = `<h4 class="font-bold text-lg text-white mb-3" data-translate-key="addresses_title">${translations[currentLanguage].addresses_title}</h4><ul class="space-y-3 text-sm">`;
+            selectedMdbs.forEach(mdb => {
+                const name = `${mdb.anrede} ${mdb.titel || ''} ${mdb.vorname} ${mdb.nachname}`.trim();
+                addressesHtml += `
+                    <li>
+                        <strong>${name}</strong><br>
+                        ${mdb.strasse}<br>
+                        ${mdb.plz} ${mdb.ort}
+                    </li>
+                `;
+            });
+            addressesHtml += `</ul>`;
+            container.innerHTML = addressesHtml;
+            container.style.display = 'block';
+        }
+
+        // Ändert die Sprache der UI
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            const elements = document.querySelectorAll('[data-translate-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            // Titel der Aktionsseite neu setzen, falls sie aktiv ist
+            if (document.getElementById('action-page').classList.contains('active')) {
+                 const title = document.getElementById('action-page-title');
+                 title.textContent = `${translations[currentLanguage].action_page_title_prefix} ${selectedState}`;
+            }
+        }
+
+        // ===== INITIALISIERUNG =====
+        document.addEventListener('DOMContentLoaded', () => {
+            populateStateSelection();
+            changeLanguage('de'); // Standardsprache setzen
+        });
+
+    </script>
+</body>
+</html>
