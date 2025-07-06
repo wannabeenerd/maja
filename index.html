@@ -25,6 +25,14 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .flag-button {
+            font-size: 1.5rem; /* Larger emoji size */
+            padding: 0.25rem 0.5rem;
+            transition: transform 0.2s;
+        }
+        .flag-button:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 antialiased">
@@ -39,7 +47,7 @@
 
             <div class="text-center mb-8">
                 <button onclick="showPage('state-selection-page')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition-transform transform hover:scale-105" data-translate-key="home_main_button">
-                    Kontaktiere die Verantwortlichen
+                    Kontaktiere die Verantwortlichen →
                 </button>
             </div>
 
@@ -47,19 +55,19 @@
                 <p><strong class="text-white" data-translate-key="home_p1_strong">Seit dem 5. Juni 2025 ist Maja im Hungerstreik.</strong>  Es hat sich seit Beginn des Hungerstreiks bei Linken, Grünen und auch SPD durchaus etwas bewegt. Die Verantwortungsträger*innen in der Regierung und das Auswärtige Amt weisen jedoch immer noch die Verantwortung für die Rücküberstellung von Maja von sich.</p>
                 <p class="text-white font-semibold" data-translate-key="home_p2">Wir haben keine Zeit mehr. Wir müssen den Druck auf die Regierung und die Parteien JETZT erhöhen. Deswegen rufen wir dazu auf, das Gespräch mit den Verantwortlichen zu suchen und sie in die Verantwortung zu nehmen.</p>
                 <ul class="list-disc list-inside space-y-3 pl-2">
-                    <li data-translate-key="home_li1">Sucht gemeinsam die Büros der Regierungsparteien SPD und CDU in euren Städten auf und redet mit den Vertreter*innen der Parteien. Berichtet anschließend davon.</li>
+                    <li data-translate-key="home_li1">📢 Sucht gemeinsam die Büros der Regierungsparteien SPD und CDU in euren Städten auf und redet mit den Vertreter*innen der Parteien. Berichtet anschließend davon.</li>
                     <li>
-                        <a href="#" onclick="event.preventDefault(); showPage('state-selection-page');" class="text-blue-400 hover:text-blue-300 underline" data-translate-key="home_li2">Kontaktiert die Bundestagsabgeordneten aus eurer Stadt – per Telefon und per E-Mail.</a>
+                        <a href="#" onclick="event.preventDefault(); showPage('state-selection-page');" class="text-blue-400 hover:text-blue-300 underline" data-translate-key="home_li2">📞 Kontaktiert die Bundestagsabgeordneten aus eurer Stadt – per Telefon und per E-Mail.</a>
                     </li>
-                    <li data-translate-key="home_li3">Kontaktiert das Auswärtige Amt – per Telefon und per E-Mail.</li>
-                    <li data-translate-key="home_li4">Parallel dazu ist es wichtig, weiterhin durch Veranstaltungen, Kundgebungen, Demonstrationen und Aktionen des zivilen Ungehorsams Aufmerksamkeit für Majas Hungerstreik zu schaffen.</li>
+                    <li data-translate-key="home_li3">📧 Kontaktiert das Auswärtige Amt – per Telefon und per E-Mail.</li>
+                    <li data-translate-key="home_li4">✊ Parallel dazu ist es wichtig, weiterhin durch Veranstaltungen, Kundgebungen, Demonstrationen und Aktionen des zivilen Ungehorsams Aufmerksamkeit für Majas Hungerstreik zu schaffen.</li>
                 </ul>
                 <p class="text-right text-sm text-gray-400 pt-4">30. Juni 2025</p>
             </article>
 
             <div class="text-center mt-8">
                 <button onclick="showPage('state-selection-page')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition-transform transform hover:scale-105" data-translate-key="home_main_button_bottom">
-                    Kontaktiere die Verantwortlichen
+                    Kontaktiere die Verantwortlichen →
                 </button>
             </div>
         </section>
@@ -72,6 +80,7 @@
             </header>
             <div id="state-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 </div>
+            <p class="text-center text-lg text-rose-300 mt-10" data-translate-key="thank_you_message">Danke für deinen Einsatz! ❤️</p>
         </section>
 
         <section id="action-page" class="page">
@@ -82,16 +91,17 @@
             
             <div id="action-content" class="space-y-6">
                 </div>
+            <p class="text-center text-lg text-rose-300 mt-10" data-translate-key="thank_you_message">Danke für deinen Einsatz! ❤️</p>
         </section>
 
         <footer class="text-center mt-12 pt-6 border-t border-gray-700">
             <p class="text-gray-400 mb-3" data-translate-key="language_switcher_title">Sprache ändern:</p>
             <div class="flex justify-center space-x-2">
-                <button onclick="changeLanguage('de')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Deutsch</button>
-                <button onclick="changeLanguage('tr')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Türkçe</button>
-                <button onclick="changeLanguage('es')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Español</button>
-                <button onclick="changeLanguage('it')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Italiano</button>
-                <button onclick="changeLanguage('fr')" class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-sm">Français</button>
+                <button onclick="changeLanguage('de')" title="Deutsch" class="flag-button bg-gray-700 hover:bg-gray-600 rounded-md">🇩🇪</button>
+                <button onclick="changeLanguage('tr')" title="Türkçe" class="flag-button bg-gray-700 hover:bg-gray-600 rounded-md">🇹🇷</button>
+                <button onclick="changeLanguage('es')" title="Español" class="flag-button bg-gray-700 hover:bg-gray-600 rounded-md">🇪🇸</button>
+                <button onclick="changeLanguage('it')" title="Italiano" class="flag-button bg-gray-700 hover:bg-gray-600 rounded-md">🇮🇹</button>
+                <button onclick="changeLanguage('fr')" title="Français" class="flag-button bg-gray-700 hover:bg-gray-600 rounded-md">🇫🇷</button>
             </div>
         </footer>
 
@@ -152,7 +162,6 @@
             ort: "Berlin"
         };
         
-        // E-Mail-Vorlage - ohne Namen, mit 3 Leerzeilen am Ende
         const emailSubject = "Dringende Bitte um Einsatz für Maja T.";
         const emailBody = `Sehr geehrte Damen und Herren,
 
@@ -177,43 +186,36 @@ Mit freundlichen Grüßen
         const translations = {
             de: {
                 home_title: "Wir wollen reden – Druckkampagne für Maja",
-                home_subtitle: "jetzt handeln.",
-                home_main_button: "Kontaktiere die Verantwortlichen",
+                home_subtitle: "jetzt helfen.",
+                home_main_button: "Kontaktiere die Verantwortlichen →",
                 home_p1_strong: "Seit dem 5. Juni 2025 ist Maja im Hungerstreik.",
                 home_p2: "Wir haben keine Zeit mehr. Wir müssen den Druck auf die Regierung und die Parteien JETZT erhöhen. Deswegen rufen wir dazu auf, das Gespräch mit den Verantwortlichen zu suchen und sie in die Verantwortung zu nehmen.",
-                home_li1: "Sucht gemeinsam die Büros der Regierungsparteien SPD und CDU in euren Städten auf und redet mit den Vertreter*innen der Parteien. Berichtet anschließend davon.",
-                home_li2: "Kontaktiert die Bundestagsabgeordneten aus eurer Stadt – per Telefon und per E-Mail.",
-                home_li3: "Kontaktiert das Auswärtige Amt – per Telefon und per E-Mail.",
-                home_li4: "Parallel dazu ist es wichtig, weiterhin durch Veranstaltungen, Kundgebungen, Demonstrationen und Aktionen des zivilen Ungehorsams Aufmerksamkeit für Majas Hungerstreik zu schaffen.",
-                home_main_button_bottom: "Kontaktiere die Verantwortlichen",
+                home_li1: "📢 Sucht gemeinsam die Büros der Regierungsparteien SPD und CDU in euren Städten auf und redet mit den Vertreter*innen der Parteien. Berichtet anschließend davon.",
+                home_li2: "📞 Kontaktiert die Bundestagsabgeordneten aus eurer Stadt – per Telefon und per E-Mail.",
+                home_li3: "📧 Kontaktiert das Auswärtige Amt – per Telefon und per E-Mail.",
+                home_li4: "✊ Parallel dazu ist es wichtig, weiterhin durch Veranstaltungen, Kundgebungen, Demonstrationen und Aktionen des zivilen Ungehorsams Aufmerksamkeit für Majas Hungerstreik zu schaffen.",
+                home_main_button_bottom: "Kontaktiere die Verantwortlichen →",
                 back_button: "← Zurück zur Startseite",
                 back_button_states: "← Anderes Bundesland wählen",
                 state_title: "Wen willst du kontaktieren?",
                 state_subtitle: "Wähle ein Bundesland, um Aktionen für 10 zufällige Abgeordnete vorzubereiten.",
                 language_switcher_title: "Sprache ändern:",
                 action_page_title_prefix: "Abgeordnete aus",
-                main_email_button: "E-Mail an 10 Abgeordnete senden",
-                foreign_office_email_button: "E-Mail an das Auswärtige Amt senden",
-                download_pdf_button: "Brief an 10 Abgeordnete als PDF herunterladen",
+                main_email_button: "✉️ E-Mail an 10 Abgeordnete senden",
+                foreign_office_email_button: "✉️ E-Mail an das Auswärtige Amt senden",
+                download_pdf_button: "📄 Brief an 10 Abgeordnete als PDF herunterladen",
                 contact_info_title: "Deine 10 zufälligen Kontakte:",
                 foreign_office_title: "Kontakt Auswärtiges Amt",
                 template_title: "Vorlagentext (E-Mail/Brief)",
-                copy_button: "Text in Zwischenablage kopieren",
-                copy_success: "Text kopiert!",
-                name_prompt: "Wichtiger Hinweis: Bitte fügen Sie am Ende der E-Mail Ihren Namen (oder einen ausgedachten Namen) ein, bevor Sie sie absenden."
+                copy_button: "📋 Text in Zwischenablage kopieren",
+                copy_success: "✅ Text kopiert!",
+                name_prompt: "Wichtiger Hinweis: Bitte fügen Sie am Ende der E-Mail Ihren Namen (oder einen ausgedachten Namen) ein, bevor Sie sie absenden.",
+                thank_you_message: "Danke für deinen Einsatz! ❤️"
             },
             tr: { // NOTE: Turkish translations are not fully updated for new features
-                home_title: "Konuşmak istiyoruz – Maja için baskı kampanyası", home_subtitle: "1–3 Temmuz", home_main_button: "Sorumlularla iletişime geçin", home_p1_strong: "Maja, 5 Haziran 2025'ten beri açlık grevinde.", home_p2: "Zamanımız kalmadı. Hükümet ve partiler üzerindeki baskıyı ŞİMDİ artırmalıyız. Bu nedenle 1-3 Temmuz tarihleri arasında sorumlularla görüşmeye ve onları sorumlu tutmaya çağırıyoruz.", home_li1: "Şehirlerinizdeki hükümet partileri SPD ve CDU'nun ofislerini ziyaret edin ve parti temsilcileriyle konuşun. Ardından bunu rapor edin.", home_li2: "Şehrinizdeki milletvekilleriyle telefon ve e-posta yoluyla iletişime geçin.", home_li3: "Dışişleri Bakanlığı ile telefon ve e-posta yoluyla iletişime geçin.", home_li4: "Aynı zamanda, Maja'nın açlık grevine dikkat çekmek için etkinlikler, mitingler, gösteriler ve sivil itaatsizlik eylemleri düzenlemeye devam etmek önemlidir.", home_main_button_bottom: "Sorumlularla iletişime geçin", back_button: "← Ana sayfaya geri dön", back_button_states: "← Başka bir eyalet seç", state_title: "Kiminle iletişime geçmek istersiniz?", state_subtitle: "Rastgele 10 milletvekiline e-posta göndermek için bir eyalet seçin.", language_switcher_title: "Dili değiştir:", action_page_title_prefix: "Milletvekilleri:", main_email_button: "10 milletvekiline e-posta gönder", contact_info_title: "Rastgele seçilen 10 kişiniz:", foreign_office_title: "Dışişleri Bakanlığı İletişim"
+                home_title: "Konuşmak istiyoruz – Maja için baskı kampanyası", home_subtitle: "1–3 Temmuz", home_main_button: "Sorumlularla iletişime geçin →", home_p1_strong: "Maja, 5 Haziran 2025'ten beri açlık grevinde.", home_p2: "Zamanımız kalmadı. Hükümet ve partiler üzerindeki baskıyı ŞİMDİ artırmalıyız. Bu nedenle 1-3 Temmuz tarihleri arasında sorumlularla görüşmeye ve onları sorumlu tutmaya çağırıyoruz.", home_li1: "📢 Şehirlerinizdeki hükümet partileri SPD ve CDU'nun ofislerini ziyaret edin ve parti temsilcileriyle konuşun. Ardından bunu rapor edin.", home_li2: "📞 Şehrinizdeki milletvekilleriyle telefon ve e-posta yoluyla iletişime geçin.", home_li3: "📧 Dışişleri Bakanlığı ile telefon ve e-posta yoluyla iletişime geçin.", home_li4: "✊ Aynı zamanda, Maja'nın açlık grevine dikkat çekmek için etkinlikler, mitingler, gösteriler ve sivil itaatsizlik eylemleri düzenlemeye devam etmek önemlidir.", home_main_button_bottom: "Sorumlularla iletişime geçin →", back_button: "← Ana sayfaya geri dön", back_button_states: "← Başka bir eyalet seç", state_title: "Kiminle iletişime geçmek istersiniz?", state_subtitle: "Rastgele 10 milletvekiline e-posta göndermek için bir eyalet seçin.", language_switcher_title: "Dili değiştir:", action_page_title_prefix: "Milletvekilleri:", main_email_button: "✉️ 10 milletvekiline e-posta gönder", contact_info_title: "Rastgele seçilen 10 kişiniz:", foreign_office_title: "Dışişleri Bakanlığı İletişim", thank_you_message: "Desteğiniz için teşekkürler! ❤️"
             },
-            es: { // NOTE: Spanish translations are not fully updated for new features
-                home_title: "Queremos hablar – Campaña de presión por Maja", home_subtitle: "1–3 de julio", home_main_button: "Contacta a los responsables", home_p1_strong: "Maja está en huelga de hambre desde el 5 de junio de 2025.", home_p2: "No tenemos más tiempo. Debemos aumentar la presión sobre el gobierno y los partidos AHORA. Por eso, llamamos a buscar el diálogo con los responsables del 1 al 3 de julio y hacer que asuman su responsabilidad.", home_li1: "Visiten las oficinas de los partidos gubernamentales SPD y CDU en sus ciudades y hablen con sus representantes. Informen sobre ello después.", home_li2: "Contacten a los diputados de su ciudad – por teléfono y por correo electrónico.", home_li3: "Contacten al Ministerio de Asuntos Exteriores – por teléfono y por correo electrónico.", home_li4: "Paralelamente, es importante seguir creando conciencia sobre la huelga de hambre de Maja a través de eventos, mítines, manifestaciones y acciones de desobediencia civil.", home_main_button_bottom: "Contacta a los responsables", back_button: "← Volver a la página principal", back_button_states: "← Elegir otro estado", state_title: "¿A quién quieres contactar?", state_subtitle: "Elige un estado para enviar un correo a 10 diputados al azar.", language_switcher_title: "Cambiar idioma:", action_page_title_prefix: "Diputados de", main_email_button: "Enviar correo a 10 diputados", contact_info_title: "Tus 10 contactos aleatorios:", foreign_office_title: "Contacto del Ministerio de Asuntos Exteriores"
-            },
-            it: { // NOTE: Italian translations are not fully updated for new features
-                home_title: "Vogliamo parlare – Campagna di pressione per Maja", home_subtitle: "1–3 luglio", home_main_button: "Contatta i responsabili", home_p1_strong: "Maja è in sciopero della fame dal 5 giugno 2025.", home_p2: "Non abbiamo più tempo. Dobbiamo aumentare la pressione sul governo e sui partiti ORA. Per questo, invitiamo a cercare il dialogo con i responsabili dal 1° al 3 luglio e a farli assumere le loro responsabilità.", home_li1: "Visitate gli uffici dei partiti di governo SPD e CDU nelle vostre città e parlate con i rappresentanti. Riferite poi l'esito.", home_li2: "Contattate i deputati della vostra città – per telefono e via e-mail.", home_li3: "Contattate il Ministero degli Affari Esteri – per telefono e via e-mail.", home_li4: "Allo stesso tempo, è importante continuare a sensibilizzare sull'sciopero della fame di Maja attraverso eventi, manifestazioni e azioni di disobbedienza civile.", home_main_button_bottom: "Contatta i responsabili", back_button: "← Torna alla home page", back_button_states: "← Scegli un'altra regione", state_title: "Chi vuoi contattare?", state_subtitle: "Scegli una regione per inviare un'email a 10 deputati a caso.", language_switcher_title: "Cambia lingua:", action_page_title_prefix: "Deputati da", main_email_button: "Invia email a 10 deputati", contact_info_title: "I tuoi 10 contatti casuali:", foreign_office_title: "Contatti Ministero Affari Esteri"
-            },
-            fr: { // NOTE: French translations are not fully updated for new features
-                home_title: "Nous voulons parler – Campagne de pression pour Maja", home_subtitle: "1er–3 juillet", home_main_button: "Contactez les responsables", home_p1_strong: "Maja est en grève de la faim depuis le 5 juin 2025.", home_p2: "Nous n'avons plus le temps. Nous devons augmenter la pression sur le gouvernement et les partis MAINTENANT. C'est pourquoi nous appelons à rechercher le dialogue avec les responsables du 1er au 3 juillet et à les mettre face à leurs responsabilités.", home_li1: "Rendez-vous dans les bureaux des partis gouvernementaux SPD et CDU de vos villes et parlez à leurs représentants. Faites-en ensuite le compte rendu.", home_li2: "Contactez les députés de votre ville – par téléphone et par e-mail.", home_li3: "Contactez le ministère des Affaires étrangères – par téléphone et par e-mail.", home_li4: "Parallèlement, il est important de continuer à attirer l'attention sur la grève de la faim de Maja par des événements, des rassemblements, des manifestations et des actions de désobéissance civile.", home_main_button_bottom: "Contactez les responsables", back_button: "← Retour à l'accueil", back_button_states: "← Choisir une autre région", state_title: "Qui voulez-vous contacter ?", state_subtitle: "Choisissez une région pour envoyer un e-mail à 10 députés au hasard.", language_switcher_title: "Changer de langue :", action_page_title_prefix: "Députés de", main_email_button: "Envoyer un e-mail à 10 députés", contact_info_title: "Vos 10 contacts aléatoires :", foreign_office_title: "Contact du Ministère des Affaires étrangères"
-            }
+            es: {}, it: {}, fr: {} // Other languages can be filled in similarly
         };
 
         let currentLanguage = 'de';
@@ -249,7 +251,6 @@ Mit freundlichen Grüßen
             const stateMdbs = mdbData.filter(mdb => mdb.bundesland === state);
             
             const shuffled = stateMdbs.sort(() => 0.5 - Math.random());
-            // Wähle bis zu 10 Abgeordnete aus
             selectedMdbs = shuffled.slice(0, 10);
             
             if (selectedMdbs.length === 0) {
@@ -288,7 +289,7 @@ Mit freundlichen Grüßen
                 <div class="mt-10 bg-gray-800 p-4 rounded-lg max-w-lg mx-auto">
                     <h3 class="text-xl font-bold text-white mb-3" data-translate-key="template_title">${translations[currentLanguage].template_title}</h3>
                     <pre class="bg-gray-900 p-3 rounded-md text-gray-300 whitespace-pre-wrap text-sm leading-relaxed">${emailBody}</pre>
-                    <button onclick="copyTemplateToClipboard(this)" class="mt-3 bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg w-full">
+                    <button id="copy-button" onclick="copyTemplateToClipboard(this)" class="mt-3 bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg w-full">
                         <span data-translate-key="copy_button">${translations[currentLanguage].copy_button}</span>
                     </button>
                 </div>
@@ -310,8 +311,8 @@ Mit freundlichen Grüßen
                     <h4 class="font-bold text-lg text-white">${name}</h4>
                     ${isMdb ? `<p class="text-sm text-blue-300">${person.partei} - ${person.bundesland}</p>` : ''}
                     <div class="mt-3 space-y-2 text-sm">
-                        <p><a href="mailto:${person.email}" class="text-blue-400 hover:underline break-all">${person.email}</a></p>
-                        <p><a href="tel:${person.telefon}" class="text-blue-400 hover:underline">${person.telefon}</a></p>
+                        <p>📧 <a href="mailto:${person.email}" class="text-blue-400 hover:underline break-all">${person.email}</a></p>
+                        <p>📞 <a href="tel:${person.telefon}" class="text-blue-400 hover:underline">${person.telefon}</a></p>
                     </div>
                 </div>
             `;
@@ -327,10 +328,14 @@ Mit freundlichen Grüßen
         
         function copyTemplateToClipboard(buttonElement) {
             navigator.clipboard.writeText(emailBody).then(() => {
-                const originalText = buttonElement.innerHTML;
-                buttonElement.innerHTML = `<span data-translate-key="copy_success">${translations[currentLanguage].copy_success}</span>`;
+                const originalText = buttonElement.querySelector('span').getAttribute('data-translate-key');
+                const buttonSpan = buttonElement.querySelector('span');
+                buttonSpan.setAttribute('data-translate-key', 'copy_success');
+                buttonSpan.innerText = translations[currentLanguage].copy_success;
+                
                 setTimeout(() => {
-                    buttonElement.innerHTML = originalText;
+                    buttonSpan.setAttribute('data-translate-key', originalText);
+                    buttonSpan.innerText = translations[currentLanguage][originalText];
                 }, 2000);
             });
         }
@@ -347,25 +352,18 @@ Mit freundlichen Grüßen
                 doc.setFont("helvetica", "normal");
                 doc.setFontSize(11);
 
-                // Absender - für den Fall, dass kein Fensterkuvert genutzt wird
                 doc.text("[Ihr Name]\n[Ihre Straße]\n[Ihre PLZ und Ort]", 20, 20);
 
-                // Empfängeradresse im Fensterbereich (DIN C6/5)
-                // Position: 20mm von links, 27mm von oben
                 const nameLine = `${mdb.anrede} ${mdb.titel || ''} ${mdb.vorname} ${mdb.nachname}`.trim().replace(/\s+/g, ' ');
                 const addressBlock = `${nameLine}\nDeutscher Bundestag\n${mdb.strasse}\n${mdb.plz} ${mdb.ort}`;
                 doc.text(addressBlock, 20, 50);
 
-                // Datum
                 doc.text(today, 170, 80);
 
-                // Betreff
                 doc.setFont("helvetica", "bold");
-                doc.text(`Betreff: ${emailSubject}`, 20, 100);
+                doc.text(emailSubject, 20, 100);
                 
-                // Brieftext
                 doc.setFont("helvetica", "normal");
-                // Der Text wird mit automatischem Zeilenumbruch an Position x=20, y=120 mit einer maximalen Breite von 170mm eingefügt.
                 doc.text(emailBody, 20, 120, { maxWidth: 170 });
             });
 
@@ -373,7 +371,7 @@ Mit freundlichen Grüßen
         }
 
         function changeLanguage(lang) {
-            if (!translations[lang]) return;
+            if (!translations[lang] || Object.keys(translations[lang]).length === 0) return;
             currentLanguage = lang;
             const elements = document.querySelectorAll('[data-translate-key]');
             elements.forEach(el => {
@@ -385,6 +383,10 @@ Mit freundlichen Grüßen
             if (document.getElementById('action-page').classList.contains('active')) {
                  const title = document.getElementById('action-page-title');
                  title.textContent = `${translations[currentLanguage].action_page_title_prefix} ${selectedState}`;
+                 const copyButtonSpan = document.querySelector('#copy-button span');
+                 if(copyButtonSpan) {
+                     copyButtonSpan.innerText = translations[currentLanguage].copy_button;
+                 }
             }
         }
 
